@@ -7,8 +7,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const [url, filePath] = process.argv.slice(2);
-
 const writeToFile = function(body, filePath) {
   fs.writeFile(filePath, body, function (err) {
     if (err) throw err;
@@ -47,5 +45,7 @@ const writeRequest = function(url, filePath) {
     }
   });
 }
+
+const [url, filePath] = process.argv.slice(2);
 
 writeRequest(url, filePath);
