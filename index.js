@@ -5,11 +5,8 @@ const readline = require('readline');
 const writeToFile = function(body, filePath, rl = null) {
   fs.writeFile(filePath, body, function (err) {
     if (err) throw err;
-    fs.stat(filePath, function(err, stats) {
-      if (err) throw err;
-      console.log(`Downloaded and saved ${stats.size} bytes to ${filePath}`);
-      if (rl) rl.close()
-    })
+    console.log(`Downloaded and saved ${body.length} bytes to ${filePath}`);
+    if (rl) rl.close()
   });
 }
 
